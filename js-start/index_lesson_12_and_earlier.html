@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript. Браузерное окружение. Работа с DOM</title>
+</head>
+
+<body>
+    <h1>
+        <span class="yellow">JavaScript.</span>
+        Браузерное окружение.
+        Работа с <span class="yellow">DOM.</span>
+    </h1>
+    <h2>
+        Урок №2
+    </h2>
+    <h3>Lesson</h3>
+    <div data-size="1058" class="lesson">
+        <div class="lesson_text"> Текст 111
+            <span class="yellow">JavaScript.</span>
+        </div>
+        <ul name="list" class="lesson_list">
+            <li class="lesson_item-list lesson_item-list_red">Пункт №1</li>
+            <li id="listItem" class="lesson_item-list lesson_item-sub-list">Пункт №2</li>
+            <li data-item="40" class="lesson_item-list">Пункт №3
+                <ul class="lesson_sub-list">
+                    <li class="lesson_item-sub-list lesson_text">Подпункт №1</li>
+                    <li data-item="85" class="lesson_item-sub-list">Подпункт №2</li>
+                    <li class="lesson_item-sub-list">Подпункт №3</li>
+                    <a class="lesson_link" href="http://fls.guru">LINK_LINK</a>
+                    <p><input class="lesson_input" type="text" name="input" value="INPUT_INPUT"></p>
+                </ul>
+            </li>
+            <li class="lesson_item-list lesson_item-list_blue">Пункт №4</li>
+        </ul>
+    </div><!-- Комментарий -->
+    <div class="lesson_for_clone">for Clone</div>
+    <div class="lesson_clone">Clone</div>
+    <div id="text"></div>
+    <script src="js/lesson_12.js"></script>
+</body>
+
+</html>
