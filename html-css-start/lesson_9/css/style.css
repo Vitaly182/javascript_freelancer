@@ -1,0 +1,225 @@
+/* 
+Для решения проблемы кроссбраузерности и соответствия макету обнуляем все стили
+*/
+
+/* 1) очищаем все отступы и границы */
+* {
+    /* звёздочка означает что мы обращаемся ко всем тегам на странице */
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/* 2) меняет подсчёт ширины блока так, чтобы нам было удобнее верстать*/
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* 3) убираем линии обводки у некоторых браузеров */
+:focus,
+:active {
+    outline: none;
+}
+a:focus,
+a:active {
+    outline: none;
+}
+
+/* 4) перечисляем некоторые html5 теги и добавляем им значение block - это делает их блочными*/
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+/* 5) применим к тегам html и body параметры которые уравнивают поведение шрифтов и элементов для разных браузеров, в т.ч. запрещают самовольное увеличение шрифта(на айфонах например)*/
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* 6) применяем к тегам форм наследуемый шрифт (по умолчанию они не наследуют семейство шрифта) */
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+/* 7) добавляем несколько параметров некоторым тегам, которые убирают некоторые особенности в разных браузерах */
+input::-ms-clear {
+    display: none;
+}
+button {
+    cursor: pointer;
+}
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+a,
+a:visited {
+    text-decoration: none;
+}
+a,
+hover {
+    text-decoration: none;
+}
+ul li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+
+/* 8) обнуляем все наши заголовки h*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+
+/* Свойство background - управляет фоном элемента */ 
+/* универсальное CSS свойство - позволяет задать сразу несколько параметров для фона:
+- определить цвет фона
+- установить фоновое изображение
+- задать начальную позицию,
+- настроить повтор изображения
+- задать метод скролла
+- настройка масштаба изображения
+-градиентная заливка фона  */ 
+
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    padding: 150px 30px 30px 30px;
+}
+
+.list {
+    margin: 0 0 50px 0;
+}
+
+.list li {
+    font-style: 24px;
+    margin: 0 0 15px 0;
+    background: url('../img/li.svg') left no-repeat;
+    padding: 0 0 0 30px;
+}
+
+.block{
+    /* 1) Background-color */
+    /*background: #18b5a4;         /* определить цвет фона */
+    /*background-color: rgb(217, 238, 161);      /* определить цвет фона */
+
+
+    /* 2) Background-image*/
+    /*background: url('../img/bg_repeat_4.png');            /* подключаем картинку, если картинка маленькая она повторяется бесконечное количество раз пока не заполнит весь блок */
+    /* для верстки важна скорость загрузки - чем меньше картинка тем меньше она занимает килобайт - поэтому делают повторение картинки */
+
+    /*background-image: url();    /* способно подключать линейные или радиальные градиенты - это заливка градиента от одного цвета до другого */
+    
+    /* линейный градиент */
+    /* Old browsers */
+    /*background-color: rgb(236,232,157);
+    /* FF3.6-15 */
+    /*background-image: -moz-linear-gradient(top, rgba(236,232,157,1) 0%, rgba(94,83,115,1) 50%, rgba(24,181,164,1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    /*background-image: -webkit-linear-gradient(top, rgba(236,232,157,1) 0%,rgba(94,83,115,1) 50%,rgba(24,181,164,1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /*background-image: linear-gradient(to bottom, rgba(236,232,157,1) 0%,rgba(94,83,115,1) 50%,rgba(24,181,164,1) 100%);
+
+
+    /* радиальный градиент */
+    /* Old browsers */
+    /*background-color: rgb(236,232,157);
+    /* FF3.6-15 */
+    /*background-image: -moz-radial-gradient(center, ellipse cover, rgba(236,232,157,1) 0%, rgba(94,83,115,1) 50%, rgba(24,181,164,1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    /*background-image: -webkit-radial-gradient(center, ellipse cover, rgba(236,232,157,1) 0%,rgba(94,83,115,1) 50%,rgba(24,181,164,1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /*background-image: radial-gradient(ellipse at center, rgba(236,232,157,1) 0%,rgba(94,83,115,1) 50%,rgba(24,181,164,1) 100%);
+
+    /* инструмент для создания градиента */
+    /* https://www.colorzilla.com/gradient-editor/   */
+
+    /* 3) Background-repeat */
+    /*background: url('../img/bg_repeat_4.png') round;  /* определяет как будет повторяться фонновое изображение  */
+    /*no-repeat - с этим значением картинка не повторяется*/
+    /*repeat-x - повторяем картинку только по горизонтали*/
+    /*repeat-y - повторяем картинку только по вертикали*/
+    /* space - повторяет изображение столько раз, чтобы полностью заполнили область; если это не удается между картинками добавляется пустое пространство*/
+    /* round - тоже заполняет полностью пространство, но оно старается не обрезать картинки */
+
+    /* 4) Background-position */
+    /*background: url('../img/bg_repeat_4.png') 0 0 no-repeat; /* Задает начальное положение фонового изображения, где первое значение (проценты, px, слово) определяет расположение по горизонтали, второе - вертикали.*/
+    /*background: url('../img/bg_repeat_4.png') top left no-repeat;*/
+
+
+    /*background: url('../img/bg_repeat_4.png') 50% no-repeat;    /* по центру */
+    /*background: url('../img/bg_repeat_4.png') center no-repeat;*/
+
+    /*background: url('../img/bg_repeat_4.png') 0 50% no-repeat;   /* слева, высота по центру */
+    /*background: url('../img/bg_repeat_4.png') left no-repeat;*/
+
+    /*background: url('../img/bg_repeat_4.png') 100% 100% no-repeat; /* в правом нижнем углу */
+    /*background: url('../img/bg_repeat_4.png') bottom right no-repeat;*/
+
+    /*background: url('../img/bg_repeat_4.png') 25px 30px no-repeat; /* позиция по пикселям*/
+
+    /* 5) Background-attachment */
+    /* Устанавливает, будет ли прокручиваться фоновое изображение вместе с содержимым элемента. */
+    
+    /*background: url('../img/bg_repeat_4.png') 0 0 no-repeat scroll;   /* Позволяет перемещаться фону вместе с окном браузера */
+
+    /*background: url('../img/bg_repeat_4.png') 0 0 no-repeat fixed; /* Делает фоновое изображение элемента неподвижным, а так же устанавливает фоновое изображение относительно окна браузера*/
+
+    /*background: url('../img/bg_repeat_4.png') 0 0 no-repeat local; /* Фон фиксируется с учётом поведения элемента. Если элемент имеет прокрутку, то фон будет прокручиваться вместе с содержимым, но фон выходящий за рамки элемента остаётся на месте.*/
+
+    /* 6) Background-size */
+    /*Масштабирует фоновое изображение согласно заданным размерам. В цифрах, где первое значение (проценты, px) определяет ширину, второе - высоту. Либо специальным значением.*/
+
+    /*background: url('../img/bg_repeat_4.png') 0 0/auto auto no-repeat;  /*Размеры картинки по умолчанию*/
+
+    /*background: url('../img/bg_repeat_4.png') 0 0/100% auto no-repeat;  /*Размеры картинки по ширине блока*/
+
+    /*background: url('../img/bg_repeat_4.png') 0 0/auto 100% no-repeat;  /*Размеры картинки по высоте блока*/
+
+    /*background: url('../img/bg_repeat_4.png') 0 0/100% 100% no-repeat;   /*Расстягиваем картинку на всю ширину и высоту блока*/
+
+    /*background: url('../img/bg_repeat_4.png') 0 0/contain no-repeat;  /*Масштабирует изображение с сохранением пропорций таким образом, чтобы картинка целиком поместилась внутрь блока. То есть по меньшей стороне картинки*/
+
+    /*background: url('../img/bg_repeat_4.png') 0 0/cover no-repeat;  /*Масштабирует изображение с сохранением пропорций так, чтобы его ширина или высота равнялась ширине или высоте блока. То есть по большей стороне картинки*/
+
+    /*background:  url('../img/bg_repeat_4.png') 0 0/200px 150px no-repeat;    /*Устанавливаем конкретные размеры. Если установлено одно значение, оно задает ширину фона, второе значение принимается за auto. Пропорции картинки при этом сохраняются. Использование двух значений через пробел задает ширину и высоту фоновой картинки*/
+
+
+
+    /* Установка нескольких фоновых изображений для блока*/
+
+    /*background: #18b5a4 url('../img/bg_repeat_4.png') no-repeat;  /*Цвет фона + одна картинка + не повторять*/
+
+    background: url('../img/яхта_2.jpg') 0 100%/150px 100px no-repeat, 
+                url('../img/1111.jpg') 50%/cover no-repeat; /*Две картинки, у каждой свои настройки. Каждая следующая ложится под предыдущую*/
+
+
+
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #000;
+
+}

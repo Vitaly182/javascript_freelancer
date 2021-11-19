@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знакомство с HTML тэгами Часть 4</title>
+</head>
+
+<body>
+    <!-- action определяет куда отправятся данные с формы - адрес сервера - заглушка #   -->
+    <!-- method метод передачи данных - 
+        get - используется по умолчанию - в этом методе передача данных идёт прямо в адресной строке - они видны любому пользователю и могут быть использованы неоднократно - подходит для передачи малого количества данных
+        post - передаёт данные скрытно используя запрос браузера - это позволяет отправить намного больше данных -->
+    <!-- enctype - нужен для отправки файлов / со значением "multipart/form-data" -->
+    <form action="#" method="post" enctype="multipart/form-data"></form>
+
+    <!-- интерактивные элементы формы с помощью которых осуществляется приём данных от пользователя -->
+    <!-- type - определяет метод приёма данных от пользователя, по умолчанию его значение text -->
+    <!-- type="text" значение text в атрибуте type будет означать что наш input примет обличие поля ввода -->
+    <!-- используем ещё 2 атрибута которые формирую пару данных - name(имя) + value(значение) -->
+    <!-- также полю input нужно дать имя - напр username -->
+    <!-- также полю value можем поставить значение - напр. user и оно будет появлятся сразу в поле ввода, чтоб поменять нужно будет зайти и перезаписать -->
+    <div>
+        <input type="text" name="username" value="">
+    </div>
+
+    <!-- для type="text" можно применить атрибут placeholder - задаёт подпись поля - мы видим это поле ввода но оно не отправиться на сервер -->
+    <br>
+    <div>
+        <input placeholder="Подпись поля" type="text" name="username" value="">
+    </div>
+
+    <!-- disabled - для всех тегов кроме тега form можно применить атрибут disabled - который блокирует любые действия с полем и делает его визуально тусклым, заблокированные теги не передают данные на сервер -->
+    <br>
+    <div>
+        <input disabled placeholder="Подпись поля" type="text" name="username" value="">
+    </div>
+
+    <!-- tabindex - для всех интерактивных тегов можно применить атрибут tabindex, который определяет порядок перехода между элементами при нажатии на клавишу TAB -->
+    <br>
+    <div>
+        <input tabindex="1" placeholder="Подпись поля" type="text" name="username" value="">
+    </div>
+
+
+
+    <br>
+    <!-- если полепредусматриват ввод цифр - напр номера телефона то нужно указать значение type="tel" - это переключит клавиатуру мобильного устройства на цифровую, что упростит ввод данных пользователем -->
+    <div>
+        <input type="tel" name="phone" value="">
+    </div>
+    <br>
+    <!-- при type="password" при вводе символы заменены на звёздочки -->
+    <div>
+        <input type="password" name="userpass" value="">
+    </div>
+
+    <!-- при type="radio" получим переключатель -->
+    <!-- чтоб отделить блоки нам необходимо поменять name -->
+    <div>
+        <p><input type="radio" name="beer" value="lager">Светлое пиво</p>
+        <p><input type="radio" name="beer" value="dark">Тёмное пиво</p>
+    </div>
+
+    <br>
+    <!-- чтоб отделить нажатия на блоки нам необходимо поменять name -->
+    <!-- tabindex - для всех интерактивных тегов можно применить атрибут tabindex, который определяет порядок перехода между элементами при нажатии на клавишу TAB -->
+    <!-- для групп тегов с типом radio - tabindex должен быть одинаков -->
+    <div>
+        <p><input tabindex="2" type="radio" name="beer2" value="lager">Светлое пиво</p>
+        <p><input tabindex="2" type="radio" name="beer2" value="dark">Тёмное пиво</p>
+    </div>
+
+    <!-- чтоб какое то значение было активно по умолчанию - можно добавить атрибут checked -->
+    <br>
+    <div>
+        <p><input checked type="radio" name="country" value="Russia">Russia</p>
+        <p><input type="radio" name="country" value="USA">USA</p>
+    </div>
+
+    <!-- при type="checkbox" получим  флажок -->
+    <!-- мы можем добавить несколько флажков, но у них обязательно должны быть разные значения атрибута name -->
+    <!-- чтоб какое то значение было активно по умолчанию - можно добавить атрибут checked -->
+    <div>
+        <p><input checked type="checkbox" name="car1" value="yes">Наличие авто1</p>
+        <p><input type="checkbox" name="car2" value="yes">Наличие авто2</p>
+        <p><input checked type="checkbox" name="car3" value="yes">Наличие авто3</p>
+        <p><input type="checkbox" name="car4" value="yes">Наличие авто4</p>
+    </div>
+
+    <!-- тип file используем для загрузки файлов -->
+    <br>
+    <div>
+        <p><input type="file" name="foto" value=""></p>
+    </div>
+
+    <!-- ЗНАЧЕНИЕ АТРИБУТА NAME НЕ ДОЛЖНЫ ПОВТОРЯТЬСЯ - ИНАЧЕ СЕРВЕР НЕ ПОЙМЁТ, ЧТО ЕСТЬ ЛОГИН А ЧТО ПАРОЛЬ И Т.Д. -->
+    <!-- ИСКЛЮЧЕНИЕ ТЕГИ INPUT С АТРИБУТОМ RADIO - ОНИ КАК РАЗ ОБЪЕДИНЯЮТСЯ ДЛЯ ПЕРЕКЛЮЧЕНИЯ МЕЖДУ НИМИ -->
+
+    <!-- textarea еще одно поле ввода текста - только более объемного текста -->
+    <!-- cols и rows - отвечают за размер - но как правило эти атрибуты убираем и в дальнейшем эти атрибуты контролируем с помощью js и css файлов -->
+    <br>
+    <div>
+        <textarea name="text"></textarea>
+    </div>
+
+    <!-- для textarea можно применить атрибут placeholder - задаёт подпись поля - мы видим это поле ввода но оно не отправиться на сервер -->
+    <br>
+    <div>
+        <textarea placeholder="Введите здесь" name="text"></textarea>
+    </div>
+
+    <!-- select + option - выпадающий список-->
+    <!-- option помещаем внутрь select-->
+    <!-- чтоб какое то значение было активно по умолчанию - можно добавить атрибут checked -->
+    <br>
+    <div>
+        <select name="color">
+            <option value="red">Красный</option>
+            <option value="yellow">Жёлтый</option>
+            <option selected value="blue">Голубой</option>
+        </select>
+    </div>
+
+    <!-- multiple для множественного выбора - зажав ctrl можем выделить несколько value -->
+    <br>
+    <div>
+        <select multiple name="color">
+            <option value="red">Красный</option>
+            <option value="yellow">Жёлтый</option>
+            <option value="blue">Голубой</option>
+        </select>
+    </div>
+
+    <!-- button - кнопка -->
+    <!-- type="submit" - при нажатии отправиться вся форма (ТОЖЕ САМОЕ ПРОИЗОЙДЁТ ЕСЛИ НАЖМЁМ ENTER В БУДУЧИ В КАКОМ ЛИБО ПОЛЕ ФОРМЫ) -->
+    <!-- type="reset" - при нажатии форма вернётся к первоначальному состоянию -->
+    <br>
+    <div>
+        <button type="submit">Отправить</button>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знакомство с HTML тэгами Часть 2</title>
+</head>
+
+<body>
+    <!-- Только один раз -->
+    <h1>содержимое тэга h1</h1>
+
+    <!-- Много раз -->
+    <h2>содержимое тэга h2</h2>
+    <h3>содержимое тэга h3</h3>
+    <h4>содержимое тэга h4</h4>
+    <h5>содержимое тэга h5</h5>
+    <h6>содержимое тэга h6</h6>
+
+    <p>Абзац №1 <span>Lorem ipsum dolor sit amet </span>consectetur adipisicing elit. Earum doloremque quod est voluptas
+        facere temporibus maiores corporis labore atque laudantium asperiores veritatis distinctio, non, quidem sit qui,
+        vitae minima et.</p>
+    <p>Абзац №2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum doloremque quod est voluptas facere
+        temporibus maiores corporis labore atque laudantium asperiores veritatis distinctio, non, quidem sit qui, vitae
+        minima et.</p>
+
+    <!-- span строчный тэг / внутри строчных тэгов не может быть блочных тэгов - в тэг span мы не можем поместить тэг <p> или <h2> или <div> -->
+    <span>содержимое тэга span № 1</span>
+    <span>содержимое тэга span № 2</span>
+    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium quo praesentium, laborum dolor velit
+        nihil esse? Maiores aspernatur optio, minima nisi placeat vero ipsam porro
+        obcaecati dolorum.</span>
+
+    <!-- внутрь блочных тэгов мы можем помещать как блочные так и строчные тэги -->
+
+    <!-- тэг а (строчный) предназначен для создания ссылок на тот или иной документ либо файл -->
+    <!-- target="_blank" - значит при нажатии на ссылку содержимое откроется в новом окне браузера -->
+    <a target="_blank" href="http://google.com">
+        содержимое тэга
+    </a>
+
+    <!-- img строчный тэг - записывается без закрывающего элемента -->
+    <!-- src - путь к картинке / alt = покажется текст если картинка не подгрузиться - если будет пусто - ничего не выведется -->
+    <img src="img/1111.jpg" alt="ой ">
+
+    <!-- маркированный список ul -->
+    <ul>
+        <li>содержимое тэга</li>
+        <li>содержимое тэга</li>
+        <li>содержимое тэга</li>
+        <li>содержимое тэга</li>
+    </ul>
+    <!-- маркированный список ol -->
+    <ol>
+        <li>содержимое тэга</li>
+        <li>содержимое тэга</li>
+        <li>содержимое тэга</li>
+        <li>содержимое тэга</li>
+    </ol>
+    <!-- каждый элемент любого из списков должен быть закрыт в тэг li -->
+
+
+    <!-- br - для перевода строки в том месте, где установлен / этот тэг не имеет закрывающего элемента -->
+    <span>Lorem ipsum dolor sit amet consectetur <br> adipisicing elit. Dolorem, quia.</span>
+
+</body>
+
+</html>
