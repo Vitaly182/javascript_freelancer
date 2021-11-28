@@ -1,0 +1,332 @@
+@charset "UTF-8";
+/* Обнуление */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a,
+hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*---------------*/
+/* 
+Суперсила №1
+
+Вложенность - способность препроцессора Sass вне зависимости от синтаксиса (оригинальный это синтаксис или scss) писать правила css внутрь других правил
+
+Например в div с классом блок есть текст "Привет, я фрилансер" - что-то обёрнуто в span - можно обратиться к span прямо внутри блока как показано ниже
+
+Кроме операторов которые применяются в css - >
+в sass можно применить дополнительные: & (например для записи псевдокласса)
+*/
+.block {
+  padding: 30px;
+  font-size: 50px;
+  line-height: 60px;
+}
+.block .block__text {
+  font-size: 80px;
+}
+.block .block__text span {
+  color: green;
+}
+.block.block--big {
+  font-size: 100px;
+}
+
+.link {
+  color: blue;
+  text-decoration: underline;
+  font-size: 20px;
+}
+.block .link {
+  font-size: 60px;
+}
+.link:hover {
+  color: green;
+}
+.link::before {
+  content: "";
+}
+.link::after {
+  content: "";
+}
+
+/*
+Суперсила №2
+
+Переменные - чтоб задать переменную ставим знак $
+*/
+.block1 {
+  padding: 30px;
+  line-height: 60px;
+}
+.block1 .block__text1 {
+  font-size: 40px;
+}
+.block1 .block__text1 span1 {
+  color: green;
+}
+.block1.block--big1 {
+  font-size: 40px;
+}
+
+.link1 {
+  color: blue;
+  text-decoration: underline;
+  font-size: 40px;
+}
+.block1 .link1 {
+  font-size: 40px;
+}
+.link1:hover {
+  color: green;
+}
+.link1::before {
+  content: "";
+}
+.link1::after {
+  content: "";
+}
+
+/*
+Суперсила №3
+
+Импорт других файлов стилей через @import "_имя файла_"
+*/
+/*
+Суперсила №4
+
+Шаблоны
+
+Сначало инициализируем шаблон через %
+И далее через @extend _имя шаблона_
+Если шаблон нигде не применяем -  в файл css он выводится не будет
+
+Также шаблоны можно создавать не через % а через обычныё класс с точкой - который у нас не существует
+.tplborder{
+    border-bottom: 5px dashed red;    
+}
+подключаем его также @extend .tplborder;
+Шаблон через класс выводится в css - в любом случае - даже если не применяется
+
+*/
+.link33, .link22, .link2 {
+  border-bottom: 5px dashed red;
+}
+
+.block2 {
+  padding: 30px;
+  line-height: 60px;
+}
+.block2 .block__text2 {
+  font-size: 40px;
+}
+.block2 .block__text2 span2 {
+  color: green;
+}
+.block2.block--big2 {
+  font-size: 40px;
+}
+
+.link2 {
+  color: blue;
+  text-decoration: underline;
+  font-size: 40px;
+}
+.block1 .link2 {
+  font-size: 40px;
+}
+.link2:hover {
+  color: green;
+}
+.link2::before {
+  content: "";
+}
+.link2::after {
+  content: "";
+}
+
+.link22 {
+  font-size: 80px;
+  border-bottom: 5px dashed greenyellow;
+}
+
+/*
+Суперсила №5
+
+Миксины(примеси) - создаются через @mixin _имя миксина_
+Применяем через @include fontz(100px);
+
+*/
+.block3 {
+  padding: 30px;
+  line-height: 60px;
+}
+.block3 .block__text3 {
+  font-size: 40px;
+}
+.block3 .block__text3 span3 {
+  color: green;
+}
+.block3.block--big3 {
+  font-size: 40px;
+}
+
+.link3 {
+  color: blue;
+  text-decoration: underline;
+  font-size: 40px;
+}
+.block3 .link3 {
+  font-size: 40px;
+}
+.link3:hover {
+  color: green;
+}
+.link3::before {
+  content: "";
+}
+.link3::after {
+  content: "";
+}
+
+.link33 {
+  font-size: 100px;
+  color: greenyellow;
+  border-bottom: 5px dashed greenyellow;
+}
+
+/*
+Суперсила №6
+
+Комментирование через //
+
+*/
+/*
+Математические операторы - такие как  + - * /
+Логические операторы - такие как if и for
+
+*/
+.block4 {
+  width: 31.25%;
+  background-color: #666;
+  padding: 30px;
+  font-size: 50px;
+  line-height: 60px;
+}
+.block4 .block__text4 {
+  font-size: 80px;
+}
+.block4 .block__text4 span4 {
+  color: green;
+}
+.block4.block--big4 {
+  font-size: 100px;
+}
+
+.link4 {
+  color: blue;
+  text-decoration: underline;
+  font-size: 20px;
+}
+.block4 .link4 {
+  font-size: 60px;
+}
+.link4:hover {
+  color: green;
+}
+.link4::before {
+  content: "";
+}
+.link4::after {
+  content: "";
+}
+
+/*
+Суперсила №6
+
+Комментирование через //
+
+*/

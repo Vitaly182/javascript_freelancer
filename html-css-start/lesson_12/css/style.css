@@ -1,0 +1,222 @@
+/* Обнуление */
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,
+:active {
+    outline: none;
+}
+a:focus,
+a:active {
+    outline: none;
+}
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+input::-ms-clear {
+    display: none;
+}
+button {
+    cursor: pointer;
+}
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+a,
+a:visited {
+    text-decoration: none;
+}
+a,
+hover {
+    text-decoration: none;
+}
+ul li {
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+/*---------------*/
+
+/*   CSS Позиционирование   
+
+position - устанавливает тип позиционирования элемента относительно других элементов, либо окна браузера
+    - static - значение по умолчанию - все блоки выводятся как обычно 
+    
+    - relative - положение элемента устанавливается относительно его изначального положения в коде
+    используется дополнительно с новыми свойствами позиционирования - такими как 
+        left, top, right, bottom - значения можно указывать в процентах, а также отрицательные значения
+        z-index - управляет наложением элементов - в значении простые цифры - по умолчанию 0
+        задача z-index - контроль положения элементов, которые запозиционированы по оси z
+
+    - absolute - блок вырывается из html кода и зависает в воздухе - он перестаёт иметь физические размеры
+    ширина становиться равна ширине контента - для возвращания размера необходимо напрямую указать размер - например - 100%
+    на место (пространство) где ранее был блок встал следующий элемент
+    работает классно тогда когда мы можем его позиционировать относительно родителя
+    для того чтобы спозиционировать его относительно родительского элемента - родительскому элементу нужно добавить параметр position: relative
+    используется дополнительно с новыми свойствами позиционирования - такими как 
+        left, top, right, bottom - значения можно указывать в процентах, а также отрицательные значения
+        их можно не указывать но разные браузеры будут по разному реагировать и по разному позиционировать блок
+
+    - fixed - также как absolute вырывает блок из потока, но фиксируется сугубо по окну браузера,
+    если в нашем родительском элементе добавлено position:relative - блок всё равно будет позиционирован по браузеру,
+    а также фиксирует его - т.е. при скроле страницы блок будет неподвижен,
+    ширина блока стала равна ширине его содержимого, поэтому как и для блока absolute можно отдельно задать ширину
+
+    - sticky - гибрид между static и fixed - превращается из static в fixed в момент кагда при скроле верхняя граница браузера достигнет его положения,
+    и блок прилипает - только в этом случае блок распологается (не относительно окна браузера - как при значении fixed) относительно родителя
+*/
+
+body{
+    padding: 30px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+/*  index1 */
+
+.block{
+    border: 5px solid red;
+    max-width: 800px;
+    margin: 10px auto;  /* margin  - это внешний отступ, но со значением 0px auto - он заставляет блочный элемент который ограничен по ширине выстроиться по центру браузера*/
+    height: 200px;
+    position: relative;
+}
+
+.block div{
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.block__1{
+    background-color: #ece89d;
+}
+
+.block__2{
+    background-color: #5e5373;
+    color: #fff;
+    position: relative;
+    left: 50px;
+    top: 60px;
+    z-index: 0;
+}
+
+.block__3{
+    position: relative;
+    z-index: 2;
+    background-color: #18b5a4;
+}
+
+.block__4{
+    background-color: #ece89d;
+}
+
+.block__5{
+    background-color: #5e5373;
+    color: #fff;
+
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 100%;
+}
+
+.block__6{
+    background-color: #18b5a4;
+}
+
+.block__7{
+    background-color: #ece89d;
+}
+
+.block__8{
+    background-color: #5e5373;
+    color: #fff;
+
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+}
+
+.block__9{
+    background-color: #18b5a4;
+}
+
+.block__10{
+    background-color: #ece89d;
+}
+
+.block__11{
+    background-color: #5e5373;
+    color: #fff;
+
+    position: sticky;
+    top: 0%;
+}
+
+.block__12{
+    background-color: #18b5a4;
+}
+
+/*  index2 */
+
+.list{
+    font-size: 18px;
+}
+
+.list li{
+    margin: 0 0 10px 0;
+    position: relative;
+    padding: 0 0 0 30px;
+}
+
+.list li:before{
+    content: '';
+    background: url('../img/li.svg') 0 0 no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    left: 0;
+
+}

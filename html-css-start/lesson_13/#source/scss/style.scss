@@ -1,0 +1,269 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+
+/* 
+Суперсила №1
+
+Вложенность - способность препроцессора Sass вне зависимости от синтаксиса (оригинальный это синтаксис или scss) писать правила css внутрь других правил
+
+Например в div с классом блок есть текст "Привет, я фрилансер" - что-то обёрнуто в span - можно обратиться к span прямо внутри блока как показано ниже
+
+Кроме операторов которые применяются в css - >
+в sass можно применить дополнительные: & (например для записи псевдокласса)
+*/ 
+
+.block {
+    padding: 30px;
+    font-size: 50px;
+    line-height: 60px;
+    .block__text{
+        font-size: 80px;
+        span{
+            color: green;
+        }
+    }
+    &.block--big{
+        font-size: 100px;
+    }
+}
+
+.link{
+    color: blue;
+    text-decoration: underline;
+    font-size: 20px;
+    .block & {
+        font-size: 60px;
+    }
+    &:hover{
+        color: green;
+    }
+    &:active{}
+    &:focus{}
+    &::before{
+        content: '';
+    }
+    &::after{
+        content: '';
+    }
+}
+
+/*
+Суперсила №2
+
+Переменные - чтоб задать переменную ставим знак $
+*/
+
+$fz:40px;
+
+.block1 {
+    padding: 30px;
+    line-height: 60px;
+    .block__text1{
+        font-size: $fz;
+        span1{
+            color: green;
+        }
+    }
+    &.block--big1{
+        font-size: $fz;
+    }
+}
+
+.link1{
+    color: blue;
+    text-decoration: underline;
+    font-size: $fz;
+    .block1 & {
+        font-size: $fz;
+    }
+    &:hover{
+        color: green;
+    }
+    &:active{}
+    &:focus{}
+    &::before{
+        content: '';
+    }
+    &::after{
+        content: '';
+    }
+}
+
+/*
+Суперсила №3
+
+Импорт других файлов стилей через @import "_имя файла_"
+*/
+
+/*
+Суперсила №4
+
+Шаблоны
+
+Сначало инициализируем шаблон через %
+И далее через @extend _имя шаблона_
+Если шаблон нигде не применяем -  в файл css он выводится не будет
+
+Также шаблоны можно создавать не через % а через обычныё класс с точкой - который у нас не существует
+.tplborder{
+    border-bottom: 5px dashed red;    
+}
+подключаем его также @extend .tplborder;
+Шаблон через класс выводится в css - в любом случае - даже если не применяется
+
+*/
+
+%tplborder{
+    border-bottom: 5px dashed red;    
+}
+
+$fz:40px;
+
+.block2 {
+    padding: 30px;
+    line-height: 60px;
+    .block__text2{
+        font-size: $fz;
+        span2{
+            color: green;
+        }
+    }
+    &.block--big2{
+        font-size: $fz;
+    }
+}
+
+.link2{
+    color: blue;
+    text-decoration: underline;
+    font-size: $fz;
+    .block1 & {
+        font-size: $fz;
+    }
+    &:hover{
+        color: green;
+    }
+    &:active{}
+    &:focus{}
+    &::before{
+        content: '';
+    }
+    &::after{
+        content: '';
+    }
+    @extend %tplborder;
+}
+
+.link22{
+    font-size: 80px;
+    @extend %tplborder;
+    border-bottom: 5px dashed greenyellow;
+}
+
+/*
+Суперсила №5
+
+Миксины(примеси) - создаются через @mixin _имя миксина_
+Применяем через @include fontz(100px);
+
+*/
+
+@mixin fontz($f, $c){
+    font-size: $f;
+    color: $c;
+}
+
+$fz:40px;
+
+.block3 {
+    padding: 30px;
+    line-height: 60px;
+    .block__text3{
+        font-size: $fz;
+        span3{
+            color: green;
+        }
+    }
+    &.block--big3{
+        font-size: $fz;
+    }
+}
+
+.link3{
+    color: blue;
+    text-decoration: underline;
+    font-size: $fz;
+    .block3 & {
+        font-size: $fz;
+    }
+    &:hover{
+        color: green;
+    }
+    &:active{}
+    &:focus{}
+    &::before{
+        content: '';
+    }
+    &::after{
+        content: '';
+    }
+}
+.link33{
+    @include fontz(100px, greenyellow);
+    @extend %tplborder;
+    border-bottom: 5px dashed greenyellow;
+}
+
+/*
+Суперсила №6
+
+Комментирование через //
+
+*/
+
+// Какой то комментарий - он не попадет в css
+
+
+/*
+Математические операторы - такие как  + - * /
+Логические операторы - такие как if и for
+
+*/
+
+.block4 {
+    width: 300px / 960px * 100%;
+    background-color: #666;
+    padding: 30px;
+    font-size: 50px;
+    line-height: 60px;
+    .block__text4{
+        font-size: 80px;
+        span4{
+            color: green;
+        }
+    }
+    &.block--big4{
+        font-size: 100px;
+    }
+}
+
+.link4{
+    color: blue;
+    text-decoration: underline;
+    font-size: 20px;
+    .block4 & {
+        font-size: 60px;
+    }
+    &:hover{
+        color: green;
+    }
+    &:active{}
+    &:focus{}
+    &::before{
+        content: '';
+    }
+    &::after{
+        content: '';
+    }
+}
+
