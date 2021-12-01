@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методология БЭМ</title>
+    
+    <!-- Подключение шрифтов через css (не через препроцессоры) -->
+    <!--<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">-->
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!--
+    Методология БЭМ
+
+    БЭМ - Блок, Элемент, Модификатор
+
+    Блок - функционально независимый компонент страницы, который может быть использован много раз.
+
+    Когда задаём блоку имя класса, то должны отвечать на вопрос "Что это?", а не какой и как выглядит
+    Имя класса принято писать латинскими буквами в нижнем регистре, а слова разделять тире.
+
+    Придумывая имена для блоков надо максимально отобразить их содержимое - например - логотип, меню, title, subtitle
+    Чем  лучше будут имена блоков отображать их содержимое тем, проще будет ориентироваться в коде.
+
+    Касательно стилей блока - иму не стоит задавать внешнюю геометрию, например - отступы(margin, padding)  либо позиционирование
+    Таким образом обеспечивается независимость блока, при которой возможно повторное его использование, либо перенос с места на место, никак не влияя на окружение.
+
+    Основыные принципы работы с блоками:
+    - Блоки можно вкладывать друг в друга
+    - Допустима любая вложенность блоков
+
+    Элемент - неотъемлемая составная часть блока, которая не может использоваться в отрыве от него.
+    Также как и для блока - имя класса должно отвечать на вопрос - "Что это?"
+    Синтаксис записи класса элемента: имяклассаблока__имяэлемента.
+    Например у нас есть меню и у меню есть 4 блока - эти 4 блока и будут элементами
+    <nav class="menu">
+        <a href="" class="menu__link"></a>
+        <a href="" class="menu__link"></a>
+        <a href="" class="menu__link"></a>
+        <a href="" class="menu__link"></a>
+    </nav>
+
+    Вложенность элементов:
+    - Элементы можно вкладывать друг в друга
+    - Допустима любая вложенность элементов
+    - Элемент это всегда часть блока, а не другого элемента
+
+    В названии элементов нельзя прописывать иерархию вида: имяклассаблока__имяэлемента__имяэлемента
+
+    Элемент всегда должен быть частью блока и не должен использоваться отдельно от него.
+
+    Элемент это необязательный компонент блока - не у всех блоков должны быть элементы
+
+    Когда создавать блок, а когда элемент: 
+    - Блок - когда фрагмент кода уже используется повторно или может использоваться повторно на других страницах сайта, при этом он не зависит от реализации других компонентов страницы.
+    - Элемент - когда фрагмент кода не может либо не будет использоваться самостоятельно (без родительского блока)
+
+    Модификатор - применяется для дополнения или уточнения внешнего вида состояния или поведения блока либо элемента -когда нужно выделить некий объект из множества таких же.
+    Имя класса модификатора должно отвечать на вопрос: "Какой?" "Как выглядит?" "Состояние"
+    Модификатор дописывается к классу блока либо элемента путем дублирования основного класса с добавлением _модификатор:
+    - имяклассаблока_модификатор
+    - имяклассаблока__имяэлемента_модификатор
+    Пример
+    <nav class="menu">
+        <a href="" class="menu__item menu__item_active">HOME</a>
+        <a href="" class="menu__item">ABOUT</a>
+        <a href="" class="menu__item">PORTFOLIO</a>
+        <a href="" class="menu__item">CONTACT</a>
+    </nav>
+
+    МИКС - использование и блоков и элементов в одном объекте
+    Позволяют совмещать поведения и стили нескольких обхектов без дублирования кода, создавать семантически новые компоненты интерфейса на основе существующих
+    Пример
+    <div class="about">
+        <div class="about__title title"></div>
+        <div class="about__subtitle subtitle"></div>
+    </div>
+    Такой подход позволяет задать внешнюю  геометрию либо позиционирование в элементе about__title, а сам блок title оставить универсальным,
+    такимобразом этот блок можно будет дублировать и использовать в любом другом месте - это позволяет нам говорить о его независимости.
+-->
+
+
+<body>
+
+    <div class="about">
+        <div class="about__body">   <!-- блок который ограничивает ширину контента -->
+            
+            <div class="about__header">
+                <div class="about__title title">ABOUT</div>
+                <div class="about__text">We specialize in contemporary, functional, and stunning websites with design that really brings that "WOW" factor. In our design process, we make sure to stay one step ahead of the latest trends, never forgetting to abide by key web standards.</div>
+            </div>
+
+            <div class="about__row">
+                <div class="about__column">
+                    <div class="item-about">
+                        <div class="item-about__icon">
+                            <img src="img/about/01.png" alt="">
+                        </div>
+                        <div class="item-about__title">WEB</div>
+                        <div class="item-about__text">We tend to deliver unique and functional design, through innovation and creativity.</div>
+                    </div>
+                </div>
+                <div class="about__column">
+                    <div class="item-about">
+                        <div class="item-about__icon">
+                            <img src="img/about/02.png" alt="">
+                        </div>
+                        <div class="item-about__title">iOS AND ANDROID</div>
+                        <div class="item-about__text">We seek to bring new businesses and customers closer together through valuable insights and proper targeting.</div>
+                    </div>
+                </div>
+                <div class="about__column">
+                    <div class="item-about">
+                        <div class="item-about__icon">
+                            <img src="img/about/03.png" alt="">
+                        </div>
+                        <div class="item-about__title">MARKETING</div>
+                        <div class="item-about__text">We'll help you establish the right goals and build the right paths. Success depends on setting the right intention</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>  
+    </div>
+
+</body>
+
+</html>
