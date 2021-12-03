@@ -1,0 +1,152 @@
+@charset "UTF-8";
+/* Обнуление */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a,
+hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*---------------*/
+/*
+display: flex; - включает 'flex' разметку - flex элементы выстроились в ряд, flex контейнер остался блочным, при изменении ширины экрана flex элементы не будут ломаться(т.е. передвигаться на следующую строку) - они как бы 
+                    склеены между собой
+display: inline-flex; - flex контейнер перестал занимать всю ширину области и начал действовать подобно значению display: inline-block только flex,
+если родителю задам text-align: center - то весь flex контейнер выстроиться по центру
+
+justify-content - определяет выравнивание вдоль основной оси
+justify-content: flex-start; - расположение flex элементов слева (значение по умолчанию)
+justify-content: flex-end; - расположение flex элементов справа
+justify-content: center; - расположение flex элементов по центру
+justify-content: space-between; - с пространством между flex элементов (первый элемент слева без отступа от левой границы, последний элемент справа без отступа от правой границы
+justify-content: space-around; - добавляется пространство слева и справа от flex элемента
+
+align-items: - определяет поведение вдоль поперечной оси
+align-items: stretch - flex элементы подстраиваются под высоту самого высокого элемента (значение по умолчанию)
+align-items: flex-start - отменяет резиновость элементов и прижимает flex элементы кверху
+align-items: flex-end - отменяет резиновость элементов и прижимает flex элементы книзу
+align-items: center - расположит flex элементы по центру по высоте
+align-items: baseline - выстраивает по базовой линии (линия текста у всех flex элементов) все flex элементы
+
+flex-wrap: - регулирует перескакивает flex элементов на следующую строку
+flex-wrap: nowrap; - flex элементы не перескакивают на следующую строку, тогда когда им не хватает места
+flex-wrap: wrap; - flex элементы перескакивают на следующую строку, тогда когда им не хватает места
+flex-wrap: wrap-reverse; - flex элементы перескакивают на следующую строку, тогда когда им не хватает места НО задом наперед
+
+
+
+*/
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.wrapper {
+  height: 100%;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 50px;
+}
+
+.block__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap-reverse;
+      flex-wrap: wrap-reverse;
+  border: 20px solid #ece89d;
+  margin: 0 0 20px 0;
+}
+
+.block__column {
+  border: 20px solid #5e5373;
+}
+
+.block__item {
+  background-color: #18b5a4;
+  padding: 50px;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 700;
+}
