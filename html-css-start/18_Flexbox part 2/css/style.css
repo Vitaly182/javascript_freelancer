@@ -1,0 +1,194 @@
+@charset "UTF-8";
+/* Обнуление */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a,
+hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*---------------*/
+/*
+
+Свойства FLEX контейнеров
+
+display: flex; - включает 'flex' разметку - flex элементы выстроились в ряд, flex контейнер остался блочным, при изменении ширины экрана flex элементы не будут ломаться(т.е. передвигаться на следующую строку) - они как бы 
+                    склеены между собой
+display: inline-flex; - flex контейнер перестал занимать всю ширину области и начал действовать подобно значению display: inline-block только flex,
+если родителю задам text-align: center - то весь flex контейнер выстроиться по центру
+
+justify-content - определяет выравнивание вдоль основной оси
+justify-content: flex-start; - расположение flex элементов слева (значение по умолчанию)
+justify-content: flex-end; - расположение flex элементов справа
+justify-content: center; - расположение flex элементов по центру
+justify-content: space-between; - с пространством между flex элементов (первый элемент слева без отступа от левой границы, последний элемент справа без отступа от правой границы
+justify-content: space-around; - добавляется пространство слева и справа от flex элемента
+
+align-items: - определяет поведение вдоль поперечной оси
+align-items: stretch - flex элементы подстраиваются под высоту самого высокого элемента (значение по умолчанию)
+align-items: flex-start - отменяет резиновость элементов и прижимает flex элементы кверху
+align-items: flex-end - отменяет резиновость элементов и прижимает flex элементы книзу
+align-items: center - расположит flex элементы по центру по высоте
+align-items: baseline - выстраивает по базовой линии (линия текста у всех flex элементов) все flex элементы
+
+flex-wrap: - регулирует перескакивает flex элементов на следующую строку
+flex-wrap: nowrap; - flex элементы не перескакивают на следующую строку, тогда когда им не хватает места
+flex-wrap: wrap; - flex элементы перескакивают на следующую строку, тогда когда им не хватает места
+flex-wrap: wrap-reverse; - flex элементы перескакивают на следующую строку, тогда когда им не хватает места НО задом наперед
+
+
+Свойства FLEX элементов
+
+описываем в block__column_1, block__column_2, block__column_3,
+
+align-self - переопределяет выравнивание - перезаписывает align-items не для всех, а для конкретного flex элемента
+align-self: stretch; - переводим в первоначальный режим
+align-self: flex-start; - поджимает элемент кверху
+align-self: flex-end; - поджимает элемент книзу
+
+order - порядок вывода - при изменении порядка у одного - необходимо  менять порядок у всех - иначе не будет работать верно
+order: 1; - сделает вывод элемента вначало
+order: 2; - сделает вывод элемента вторым
+order: 3; - сделает вывод элемента третьим
+
+
+описываем в block_column
+
+flex-basis - базовый размер элемента (это свойство не является аналогом свойства width)
+flex-basis: auto; - flex элементы занимают размер равный размеру контента (значение по умолчанию)
+flex-basis: 30%; - можно указать значение в процентах
+flex-basis: 50px; - можно указать значение в пикселях
+
+flex-grow: - контролирует возможность увеличиваться flex элементу относительно его базового размера
+flex-grow: 0; - при 0 flex элементу запрещено увеличиваться больше flex-basis (значение по умолчанию)
+flex-grow: 1; - flex элементы увеличились и полностью заполнили собой всю ширину flex контейнера
+
+flex-shrink - контролирует сможет ли flex элемент становиться меньше чем указанный базовый размер
+flex-shrink: 1; - разрешено становиться меньше (значение по умолчанию)
+flex-shrink: 0; - flex элементы не станут становиться меньше чем указанное базовое значение
+
+flex: - объединяет 3 свойства: flex-grow, flex-shrink и flex-basis
+flex: 0 1 auto; - пример
+
+*/
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.wrapper {
+  height: 100%;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 50px;
+}
+
+.block__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 20px solid #ece89d;
+  margin: 0 0 20px 0;
+}
+
+.block__column {
+  border: 20px solid #5e5373;
+  /*
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+  */
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+.block__item {
+  text-align: center;
+  background-color: #18b5a4;
+  padding: 50px;
+  font-size: 50px;
+  color: #fff;
+  font-weight: 700;
+}
