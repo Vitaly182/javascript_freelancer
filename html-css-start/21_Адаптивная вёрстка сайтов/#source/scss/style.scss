@@ -1,0 +1,88 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+
+/*
+Медиа запросы
+
+@media _тип устройства_ {
+}
+
+@media (_характеристика устройства_) {
+}
+
+@media _тип устройства_ and (_характеристика устройства_) {
+}
+
+тип устройства:
+- all - все (значение по умолчанию)
+- print - для документов предварительного просмотра печати
+- screen - для цветных мониторов компьютеров
+- speech - для синтезаторов речи
+
+характеристика устройства:
+- orientation - отвечает за положение устройства
+orientation:portrait - портретное
+orientation:landscape - альбомное
+
+- resolution - разрешение - количество точек на дюйм
+resolution: 300dpi
+max-resolution: 300dpi
+min-resolution: 300dpi
+
+- monochrome - стили применяться когда сайт откроется на черно-белом экране
+
+- max-width
+max-width: 767px
+
+- max-height
+max-height: 500px
+
+- min-width
+min-width: 767px
+
+- min-height
+min-height: 500px
+
+
+Группировка в коде - элемент + медиазапрос
+
+@media screen and (max-width: 767px) {
+    .container{
+        font-size: 40px
+        margin: 0 0 15px 0;
+    }
+}
+
+
+
+*/
+
+@media screen and (max-width: 767px), screen and (max-height: 700px) {   // , - запятая равна оператору or
+    .container{
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container{
+        max-width: none;
+    }
+}
+
+@media screen, (max-width: 767px) {
+    .container{
+        max-width: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .container{
+        max-width: none;
+    }
+}
+
+@media (min-width: 767px) {
+    .container{
+        min-width: none;
+    }
+}

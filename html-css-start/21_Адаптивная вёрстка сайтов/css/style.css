@@ -1,0 +1,172 @@
+@charset "UTF-8";
+/* Обнуление */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a,
+hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*---------------*/
+/*
+Медиа запросы
+
+@media _тип устройства_ {
+}
+
+@media (_характеристика устройства_) {
+}
+
+@media _тип устройства_ and (_характеристика устройства_) {
+}
+
+тип устройства:
+- all - все (значение по умолчанию)
+- print - для документов предварительного просмотра печати
+- screen - для цветных мониторов компьютеров
+- speech - для синтезаторов речи
+
+характеристика устройства:
+- orientation - отвечает за положение устройства
+orientation:portrait - портретное
+orientation:landscape - альбомное
+
+- resolution - разрешение - количество точек на дюйм
+resolution: 300dpi
+max-resolution: 300dpi
+min-resolution: 300dpi
+
+- monochrome - стили применяться когда сайт откроется на черно-белом экране
+
+- max-width
+max-width: 767px
+
+- max-height
+max-height: 500px
+
+- min-width
+min-width: 767px
+
+- min-height
+min-height: 500px
+
+
+Группировка в коде - элемент + медиазапрос
+
+@media screen and (max-width: 767px) {
+    .container{
+        font-size: 40px
+        margin: 0 0 15px 0;
+    }
+}
+
+
+
+*/
+@media screen and (max-width: 767px), screen and (max-height: 700px) {
+  .container {
+    max-width: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
+}
+@media screen, (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
+}
+@media (min-width: 767px) {
+  .container {
+    min-width: none;
+  }
+}
