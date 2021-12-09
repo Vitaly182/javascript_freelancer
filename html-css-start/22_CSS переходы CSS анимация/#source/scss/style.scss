@@ -1,0 +1,90 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+
+/*
+
+CSS переходы обеспечивают смену значений других свойств с определённой анимацией и сценарием
+
+transition
+
+transition-duration - определяет промежуток времени в течении которого будет происходить переход
+.button{
+    transition-duration: 1s;
+}
+
+transition-property - содержит названия CSS свойств к которым будет применён эффект перехода
+по умолчанию значение - all
+transition-property: background-color, box-shadow; можно указать анимацию для одного свойства или нескольких
+
+можно для каждого свойства задать своё время
+transition-duration: 1s, 100ms;
+transition-property: background-color, box-shadow;
+
+есть свойства которые невозможно анимировать - например display
+
+transition-delay - задержка выполнения перехода - используется при построении сценария анимации
+    transition-duration: 1s, 100ms, 100ms;
+    transition-property: background-color, top, box-shadow;
+    transition-delay: 0s, 0.5s, 0.5s;
+
+
+
+
+transition-timing-function - задаёт стиль нашего перехода
+transition-timing-function: ease - анимация начинается медленно, к середине разгоняется и к концу замедляется
+transition-timing-function: ease-in - анимация начинается медленно, а затем плавно ускоряется в конце
+transition-timing-function: ease-out - анимация начинается быстро и плавно замедляется в конце
+transition-timing-function: ease-in-out - анимация медленно начинается и медленно заканчивается
+transition-timing-function: linear - анимация происходит равномерно без скачков и колебаний в скорости
+transition-timing-function: steps(10, start) - step разбивает переход на равные части - разбивается как время перехода, так и значение свойства перехода
+transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55) - функция с помощью которой мы можем сами создать свой сценарий анимации
+
+Все свойства переходов можно записать можно записать одним универсальным свойством transition
+transition: all 1s ease 0s;
+all - transition-property
+1s - transition-duration
+ease - transition-timing-function
+0s - transition-delay
+
+
+С помощью transition можно задавать конкретное значение переходов для конкретных CSS свойств
+transition: padding 1s ease 0s, color 2s ease-in 0.5s;
+
+
+
+
+
+*/
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.button{
+    text-decoration: none;
+    display: inline-block;
+    line-height: 60px;
+    padding: 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 18px;
+    border-radius: 10px;
+    top: 0;
+    position: relative;    
+}
+
+.button_1 {
+    color: #fff;
+    background-color: #5e5373;
+    box-shadow: 0 5px 0 #3c354a;
+    transition-duration: 1s, 100ms, 100ms;
+    transition-property: background-color, top, box-shadow;
+    transition-delay: 0s, 0.5s, 0.5s;
+    &:hover{
+        top: 2px;
+        box-shadow: 0 3px 0 #3c354a;
+        background-color: #18b5a4;
+    }
+}
