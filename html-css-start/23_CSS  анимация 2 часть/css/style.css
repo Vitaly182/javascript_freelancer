@@ -1,0 +1,252 @@
+@charset "UTF-8";
+/* Обнуление */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a,
+hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*---------------*/
+/*
+Анимация с помощью ключевых точек
+
+@keyframes white-circle {
+    from{
+        прописываем начальное положение
+    }
+    to{
+        прописываем конечное положение
+    }
+}
+
+при этом можно указываеть промежуточные ключевые кадры со своими свойствами
+
+Свойства:
+
+.content__circle {
+    animation-name: <имя ключевых кадров>, <имя ключевых кадров №2>; 
+}
+
+animation-name - определяет список применяемых к элементу анимаций, можно указывать несколько, но приоритет будет у последней записи
+имя анимации чувствительно к регистру и не допускается использование ключевого слова none; none можно использовать для отключения анимации совсем
+рекомендуется писать названия отражающие суть анимации, при этом можно использовать одно или несколько слов, разделённых дефисом, либо через символ нижнего подчёркивания
+
+.content__circle {
+    animation-name: <имя ключевых кадров>, <имя ключевых кадров №2>; 
+}
+
+animation-duration - продолжительность анимации
+
+.content__circle {
+    animation-duration: <время>, <время №2>; 
+}
+
+animation-timing-function - задаёт сценарий развития анимации между ключевыми кадрами
+по умолчанию - ease
+еще значения - ease-in, ease-out, ease-in-out, linear, steps(int,start|end), cubic-bezier
+
+.content__circle {
+    animation-timing-function: ease, ease-in; 
+}
+
+animation-iteration-count - количество повторов ключевых кадров
+по умолчанию - 1
+infinite - бесконечное количество раз
+
+.content__circle {
+    animation-iteration-count: <значение>, <значение №2>; 
+}
+
+animation-direction - тип и направление проигрывания ключевых кадров
+по умолчанию - normal
+еще значения - alternate, alternate-reverse, reverse
+
+.content__circle {
+    animation-direction: <значение>, <значение №2>; 
+}
+
+animation-play-state - позволяет запускать или приостанавливать анимацию по определенному событию
+по умолчанию - running
+еще значения - paused, 
+(paused - приостанавливает анимацию, если надо сбросить анимацию на старторую позицию - можно использовать animation-name:none
+
+.content__circle {
+    animation-play-state: <значение>, <значение №2>; 
+}
+
+animation-delay - осрочка анимации
+возможно отрицательное значение - например при -1 и animation-duration 2 - анимация запуститься с середины цикла
+
+.content__circle {
+    animation-delay: <время>, <время №2>; 
+}
+
+animation-fill-modу - определяет какие значения анимируемых свойств применяться к объекту после анимации
+по умолчанию - none
+еще значения - forwards - применились конечные свойства ключевых кадров, 
+
+.content__circle {
+    animation-fill-mode: <значение>, <значение №2>; 
+}
+
+
+Краткая запись АНИМАЦИИ
+
+animation: animation-name animation-duration animation-timing-function animation-iteration-count animation-direction animation-delay animation-fill-mode
+
+
+}
+
+*/
+body {
+  background-color: black;
+}
+
+.content {
+  margin: 50px;
+}
+
+.content:hover .content__circle {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.content__circle {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+  -webkit-animation: white-circle 5s linear infinite alternate 0s forwards, red-circle 5s linear infinite alternate 0s forwards;
+          animation: white-circle 5s linear infinite alternate 0s forwards, red-circle 5s linear infinite alternate 0s forwards;
+}
+
+@-webkit-keyframes white-circle {
+  0% {
+    left: 0;
+  }
+  50% {
+    border-radius: 0%;
+  }
+  100% {
+    left: 800px;
+  }
+}
+
+@keyframes white-circle {
+  0% {
+    left: 0;
+  }
+  50% {
+    border-radius: 0%;
+  }
+  100% {
+    left: 800px;
+  }
+}
+@-webkit-keyframes red-circle {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: red;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+@keyframes red-circle {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: red;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
