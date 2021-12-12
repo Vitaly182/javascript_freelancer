@@ -105,13 +105,23 @@ body{
     margin: 50px;
 }
 
-.content:hover .content__circle{
+.content:hover .content__circle_1{
+    animation-play-state:paused;
+    // animation-name:none;
+}
+
+.content:hover .content__circle_2{
+    animation-play-state:paused;
+    // animation-name:none;
+}
+
+.content:hover .content__circle_3{
     animation-play-state:paused;
     // animation-name:none;
 }
 
 
-.content__circle {
+.content__circle_1 {
     width: 100px;
     height: 100px;
     background-color: #fff;
@@ -127,7 +137,31 @@ body{
     // animation-delay: 0s;
     // animation-fill-mode: none;
 
-    animation: white-circle 5s linear infinite alternate 0s forwards, red-circle 5s linear infinite alternate 0s forwards;
+    animation: white-circle 5s linear infinite alternate 0s forwards, multicolored-circle 5s linear infinite alternate 0s forwards;
+}
+
+.content__circle_2 {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    left: 0;
+    margin: 50px 0 0 0;
+
+    animation: white-circle 5s linear infinite alternate-reverse 0s forwards, multicolored-circle 5s linear infinite alternate 0s forwards;
+}
+
+.content__circle_3 {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: relative;
+    left: 0;
+    margin: 50px 0 0 0;
+
+    animation: white-circle 5s linear infinite alternate 0s forwards, multicolored-circle 5s linear infinite alternate 0s forwards;
 }
 
 @keyframes white-circle {
@@ -142,12 +176,18 @@ body{
     }
 }
 
-@keyframes red-circle {
+@keyframes multicolored-circle {
     0%{
-        background-color: #fff;
+        background-color: #fff;        
+    }
+    25%{
+        background-color: blueviolet;
     }
     50%{
         background-color: red;
+    }
+    75%{
+        background-color: blueviolet;
     }
     100%{
         background-color: #fff;

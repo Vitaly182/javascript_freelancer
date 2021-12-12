@@ -189,20 +189,53 @@ body {
   margin: 50px;
 }
 
-.content:hover .content__circle {
+.content:hover .content__circle_1 {
   -webkit-animation-play-state: paused;
           animation-play-state: paused;
 }
 
-.content__circle {
+.content:hover .content__circle_2 {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.content:hover .content__circle_3 {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.content__circle_1 {
   width: 100px;
   height: 100px;
   background-color: #fff;
   border-radius: 50%;
   position: relative;
   left: 0;
-  -webkit-animation: white-circle 5s linear infinite alternate 0s forwards, red-circle 5s linear infinite alternate 0s forwards;
-          animation: white-circle 5s linear infinite alternate 0s forwards, red-circle 5s linear infinite alternate 0s forwards;
+  -webkit-animation: white-circle 5s linear infinite alternate 0s forwards, multicolored-circle 5s linear infinite alternate 0s forwards;
+          animation: white-circle 5s linear infinite alternate 0s forwards, multicolored-circle 5s linear infinite alternate 0s forwards;
+}
+
+.content__circle_2 {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+  margin: 50px 0 0 0;
+  animation: white-circle 5s linear infinite alternate-reverse 0s forwards, multicolored-circle 5s linear infinite alternate 0s forwards;
+}
+
+.content__circle_3 {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  left: 0;
+  margin: 50px 0 0 0;
+  -webkit-animation: white-circle 5s linear infinite alternate 0s forwards, multicolored-circle 5s linear infinite alternate 0s forwards;
+          animation: white-circle 5s linear infinite alternate 0s forwards, multicolored-circle 5s linear infinite alternate 0s forwards;
 }
 
 @-webkit-keyframes white-circle {
@@ -228,23 +261,35 @@ body {
     left: 800px;
   }
 }
-@-webkit-keyframes red-circle {
+@-webkit-keyframes multicolored-circle {
   0% {
     background-color: #fff;
   }
+  25% {
+    background-color: blueviolet;
+  }
   50% {
     background-color: red;
+  }
+  75% {
+    background-color: blueviolet;
   }
   100% {
     background-color: #fff;
   }
 }
-@keyframes red-circle {
+@keyframes multicolored-circle {
   0% {
     background-color: #fff;
   }
+  25% {
+    background-color: blueviolet;
+  }
   50% {
     background-color: red;
+  }
+  75% {
+    background-color: blueviolet;
   }
   100% {
     background-color: #fff;
