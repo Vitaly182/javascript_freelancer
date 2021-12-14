@@ -1,0 +1,226 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+
+
+/*
+
+Для адаптирования картинок в тексте используем свойство max-width: 100%;
+
+Для адаптирования картинок в карточках с 3 колонками используем свойство 
+
+object-fit: fill; - позволяет объекту полностью заполнить содержимое родителя используя свои размеры, т.е. ширину и высоту (значение по уцмолчанию)
+
+object-fit: contain; - заставляет объекты полностью поместиться внутрь родителя
+
+object-fit: none; - картинки никак не будут изменены в размере, чтобы интегрироваться внутрь родителя
+
+object-fit: cover; - объекты вписываются в размеры родителя, при этом масштабируясь таким образом, чтобы отобразить как можно больше полезной информациии -  действует также как одноимённое свойство для background-size
+
+Для object-fit существует object-position
+
+object-position: center; - по центру (значение по умолчанию)
+
+object-position: 0 0; - позиционирование относительно верхнего левого угла
+
+object-position: top; - позиционирование относительно вверха
+
+и т.д. по аналогии с background-position
+
+
+
+Для отзывчивой высоты
+- родителю картинки задаём:
+    position: relative;
+    вместо height: 200px; (фиксированный высоты) задаём padding: 0 0 58% 0; (нижний внутренний отступ)
+- картинке задаём:
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+
+
+
+Для адаптирования картинок в карточках в ряд 
+- родителю картинки задаём:
+    position: relative;
+- картинке задаём:
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    
+Чтоб обезапасить себя от отсутствуя контента можно добавить картинке минимальную высоту 
+min-height: 150px;
+
+Internet Explorer 11 не поддерживает это свойство - в таких случаях применяем Javascript
+Применяем класс IBG - устанавливает картинку фоном на лету
+
+CSS
+.ibg{
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+position: relative;
+}
+
+.ibg img{
+width: 0;
+height: 0;
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0;
+visibility: hidden;
+}
+
+Чистый JS
+function ibg(){
+let ibg=document.querySelectorAll(".ibg");
+for (var i = 0; i < ibg.length; i++) {
+if(ibg[i].querySelector('img')){
+ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')';
+}
+}
+}
+
+ibg();
+
+
+
+Тег <picture> является контейнером внутрь которого помещаем исходные материалы: <source> и <img>
+Позволяет выводить то или иное изображение в зависимости от условий
+
+В <source> есть атрибуты
+srcset - путь к картинке srcset="img/1300x400.jpg" - также можно указать плотность экрана - например 2х - srcset="img/1300x400.jpg 2x" 
+type - тип картинки (формат)
+media - медиа запрос - условие при котором будет выводиться именно это изображение
+
+Чтобы что-то показывалось на Internet Explorer 11 - указываем тег img (для браузеров которые не поддерживают конструкцию picture выведется именно это изображение)
+
+Благодаря атрибуту type можно использовать современные форматы изображения - например webp - что еще больше оптимизирует вёрстку
+
+
+
+*/
+
+
+*,*:before,*:after{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+html,body{
+	height: 100%;
+	background-color: #333;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	font-size: 16px;
+	line-height: 24px;
+}
+a{
+	text-decoration: none;
+}
+
+.wrapper{
+	min-height: 100%;
+	overflow: hidden;
+}
+
+/* Основные стили */
+.content{
+	max-width: 1330px;
+	margin: 0px auto;
+	padding: 50px 15px;
+}
+.title{
+	margin: 0px 0px 20px 0px;
+	font-size: 30px;
+}
+
+/* Картинки в тексте */
+.text {
+	margin: 0px 0px 80px 0px;
+}
+/* Контейнер картинки */
+.text__image {
+	margin: 0px 0px 20px 0px;
+	text-align: center;
+}
+/* Картинка */
+.text__image img{
+	max-width: 100%;
+}
+.text__value {}
+.text__value p{
+	margin: 0px 0px 20px 0px;
+}
+
+/* Картинки в карточке */
+.cards {
+	margin: 0px 0 70px 0;
+}
+.cards__row{
+	margin: 0px -15px 70px -15px;
+	display: flex;
+}
+.cards__column {
+	flex: 0 1 33.333%;
+	padding: 0px 15px;
+}
+.cards__item {
+}
+
+/* Контейнер картинки */
+.cards__image {
+	margin: 0px 0px 20px 0px;
+	padding: 0px 0px 58% 0px;
+	overflow: hidden;
+	position: relative;
+}
+/* Картинка */
+.cards__image img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.cards__body {
+	
+}
+
+/* Картинки в карточке №2 */
+.items {}
+.items__item {
+	display: flex;
+	margin: 0px 0px 30px 0px;
+}
+/* Контейнер картинки */
+.items__image {
+	flex: 0 0 33.333%;
+	position: relative;
+	min-height: 150px;
+}
+/* Картинка */
+.items__image img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.items__body {
+	flex: 1 1 auto;
+	padding: 0px 0px 0px 30px;
+}
+.items__label {
+	font-size: 20px;
+	font-weight: 700;
+	display: inline-block;
+	margin: 0px 0px 20px 0px;
+}
+.items__text {
+	
+}
