@@ -1,0 +1,261 @@
+@charset "UTF-8";
+/* Обнуление */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a,
+hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*---------------*/
+/*
+
+Объявление grid
+display: grid;   либо    display: inline-grid;
+
+Во время объявления grid - автоматически объявляется явной одна колонка и явный один ряд
+Чтобы управлять этими рядами и колонками существуют отдельные свойства
+grid-template-columns: 200px;
+grid-template-rows: 200px;
+
+Далее для построения следующих колонок и столбцов - через пробел задаём следующие размеры
+grid-template-columns: 200px 150px 300px;
+grid-template-rows: 200px 300px;
+
+Также можем указать данные в процентах и комбинировать
+grid-template-columns: 30% 150px 50%;
+grid-template-rows: 50% 50%;
+
+В grid еще можно задать размеры через единицу измерегния fr
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: 0.2fr 0.5fr 0.1fr;
+
+Создавать размеры колонок можно ограничивая по минимальной и максимальной ширине колонки
+grid-template-columns: 200px minmax(150px, 1fr) 200px;
+grid-template-rows: 1fr 1fr;
+
+grid-template-columns: 200px minmax(150px, 350px) 200px;
+grid-template-rows: 1fr 1fr;
+
+1fr не может выступать в качестве минимальной ширины
+
+Есть возможность задавать размеры колонок автоматически - т.е. соответствуя наполнению
+grid-template-columns: auto 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+
+Кроме автоматической настройки ширины- мы можем еще ограничивать ширину колонки при этом
+fit-content(100px) - как auto но с ограничением
+grid-template-columns: fit-content(100px) 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+
+Оптимизация записи
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: 1fr 1fr;
+
+grid-template-columns: repeat(3, 200px);
+grid-template-rows: repeat(2, 1fr);
+
+Можно четко определить нахождение областей через наименование областей
+grid-template-areas: 
+	"header header"
+	"side content";
+.grid-header{
+	grid-area: header;
+}
+.grid-side{
+	grid-area: side;
+}
+.grid-content{
+	grid-area: content;
+}
+
+
+ВСЁ это можно упростить с помощью общей записи
+
+вместо
+grid-template-columns: repeat(3, 200px);
+grid-template-rows: 1fr 1fr;
+можно записать
+grid-template: 1fr 1fr / repeat(3, 200px);
+
+вместо 
+grid-template-columns: 150px 1fr;
+grid-template-rows: 100px 1fr;
+grid-template-areas: 
+	"header header"
+	"side content";
+можно записать
+grid-template: 
+	[start] "header header" 100px [row2]
+	[row2] "side content" [row-end] / 150px 1fr;
+
+
+
+При неявной сетке - где последний ряд выбивается из сетки 
+- можно управлять высотой последнего ряда 
+grid-auto-rows: 200px;
+
+Когда совсем не задана явно сетка можно управлять колонками
+// grid-template: 1fr 1fr / repeat(3, 1fr);
+grid-auto-columns: 300px;
+
+
+Автоматическое размещение неявных grid элементов
+grid-auto-flow: row; - выстраивание grid элементов поочередно в ряд
+grid-auto-flow: column; - выстраивание grid элементов поочередно в колонку
+grid-auto-flow: dense; - grid элементы будут стараться заполнить пространство, даже изменяя порядок,чтобы уместиться в grid контейнере
+
+
+
+*/
+body {
+  color: white;
+  background-color: black;
+}
+body .wrapper {
+  margin: 40px;
+  font-size: 25px;
+}
+body .wrapper h1 {
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+body .wrapper .grid__body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+  -ms-grid-columns: (200px)[3];
+      grid-template: 1fr 1fr/repeat(3, 200px);
+}
+body .wrapper .grid__item {
+  text-align: center;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  padding: 30px;
+}
+body .wrapper h2 {
+  text-align: center;
+  margin: 30px 0 30px 0;
+}
+body .wrapper .grid-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 100px auto;
+  -ms-grid-columns: 150px 1fr;
+      grid-template: [start] "header header" 100px [row2] [row2] "side content" [row-end]/150px 1fr;
+}
+body .wrapper .grid-wrapper .grid-header,
+body .wrapper .grid-wrapper .grid-side,
+body .wrapper .grid-wrapper .grid-content {
+  padding: 30px;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  margin: 0 0 15px 0;
+}
+body .wrapper .grid-wrapper .grid-header {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: header;
+}
+body .wrapper .grid-wrapper .grid-side {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: side;
+}
+body .wrapper .grid-wrapper .grid-content {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: content;
+}
+body .wrapper .grid-auto__body {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: 200px;
+  grid-auto-columns: 500px;
+}
+body .wrapper .grid-auto__item {
+  text-align: center;
+  border: 2px dashed rgba(255, 255, 255, 0.7);
+  padding: 30px;
+}

@@ -1,0 +1,181 @@
+// Файл обнуляющих стилей
+@import "nullstyle.scss";
+
+/*
+
+Объявление grid
+display: grid;   либо    display: inline-grid;
+
+Во время объявления grid - автоматически объявляется явной одна колонка и явный один ряд
+Чтобы управлять этими рядами и колонками существуют отдельные свойства
+grid-template-columns: 200px;
+grid-template-rows: 200px;
+
+Далее для построения следующих колонок и столбцов - через пробел задаём следующие размеры
+grid-template-columns: 200px 150px 300px;
+grid-template-rows: 200px 300px;
+
+Также можем указать данные в процентах и комбинировать
+grid-template-columns: 30% 150px 50%;
+grid-template-rows: 50% 50%;
+
+В grid еще можно задать размеры через единицу измерегния fr
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: 0.2fr 0.5fr 0.1fr;
+
+Создавать размеры колонок можно ограничивая по минимальной и максимальной ширине колонки
+grid-template-columns: 200px minmax(150px, 1fr) 200px;
+grid-template-rows: 1fr 1fr;
+
+grid-template-columns: 200px minmax(150px, 350px) 200px;
+grid-template-rows: 1fr 1fr;
+
+1fr не может выступать в качестве минимальной ширины
+
+Есть возможность задавать размеры колонок автоматически - т.е. соответствуя наполнению
+grid-template-columns: auto 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+
+Кроме автоматической настройки ширины- мы можем еще ограничивать ширину колонки при этом
+fit-content(100px) - как auto но с ограничением
+grid-template-columns: fit-content(100px) 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+
+Оптимизация записи
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: 1fr 1fr;
+
+grid-template-columns: repeat(3, 200px);
+grid-template-rows: repeat(2, 1fr);
+
+Можно четко определить нахождение областей через наименование областей
+grid-template-areas: 
+	"header header"
+	"side content";
+.grid-header{
+	grid-area: header;
+}
+.grid-side{
+	grid-area: side;
+}
+.grid-content{
+	grid-area: content;
+}
+
+
+ВСЁ это можно упростить с помощью общей записи
+
+вместо
+grid-template-columns: repeat(3, 200px);
+grid-template-rows: 1fr 1fr;
+можно записать
+grid-template: 1fr 1fr / repeat(3, 200px);
+
+вместо 
+grid-template-columns: 150px 1fr;
+grid-template-rows: 100px 1fr;
+grid-template-areas: 
+	"header header"
+	"side content";
+можно записать
+grid-template: 
+	[start] "header header" 100px [row2]
+	[row2] "side content" [row-end] / 150px 1fr;
+
+
+
+При неявной сетке - где последний ряд выбивается из сетки 
+- можно управлять высотой последнего ряда 
+grid-auto-rows: 200px;
+
+Когда совсем не задана явно сетка можно управлять колонками
+// grid-template: 1fr 1fr / repeat(3, 1fr);
+grid-auto-columns: 300px;
+
+
+Автоматическое размещение неявных grid элементов
+grid-auto-flow: row; - выстраивание grid элементов поочередно в ряд
+grid-auto-flow: column; - выстраивание grid элементов поочередно в колонку
+grid-auto-flow: dense; - grid элементы будут стараться заполнить пространство, даже изменяя порядок,чтобы уместиться в grid контейнере
+
+
+
+*/
+
+
+
+body{
+	color: white;
+	background-color: black;
+	.wrapper{
+		margin: 40px;
+		font-size: 25px;
+		h1{
+			text-align: center;
+			margin:0 0 30px 0;
+		}
+		.grid__body{
+			display: grid;  // либо display: inline-grid;
+		
+			grid-template: 1fr 1fr / repeat(3, 200px);
+			// grid-template-columns: repeat(3, 200px);
+			// grid-template-rows: 1fr 1fr;		
+		}
+		.grid__item{
+			text-align: center;
+			border: 2px dashed rgba(255, 255, 255, 0.7);
+			padding: 30px;
+		}
+		h2{
+			text-align: center;
+			margin:30px 0 30px 0;
+		}
+		.grid-wrapper{
+			display: grid;
+	
+			grid-template: 
+				[start] "header header" 100px [row2]
+				[row2] "side content" [row-end] / 150px 1fr;
+	
+			// grid-template-columns: 150px 1fr;
+			// grid-template-rows: 100px 1fr;
+			// grid-template-areas: 
+			// 	"header header"
+			// 	"side content";
+			.grid-header,
+			.grid-side,
+			.grid-content{
+				padding: 30px;
+				border: 2px dashed rgba(255, 255, 255, 0.7);
+				margin: 0 0 15px 0;
+			}
+			.grid-header{
+				grid-area: header;
+			}
+			.grid-side{
+				grid-area: side;
+			}
+			.grid-content{
+				grid-area: content;
+			}
+		}
+		.grid-auto__body{
+			display: grid;  		
+			// grid-template: 1fr 1fr / repeat(3, 1fr);
+			grid-auto-rows: 200px;
+			grid-auto-columns: 500px;
+		}
+		.grid-auto__item{
+			text-align: center;
+			border: 2px dashed rgba(255, 255, 255, 0.7);
+			padding: 30px;
+		}
+		
+	}
+
+}
+
+
+
+
+
