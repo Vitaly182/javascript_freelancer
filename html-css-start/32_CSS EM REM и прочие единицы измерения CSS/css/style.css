@@ -1,0 +1,215 @@
+@charset "UTF-8";
+/* Обнуление */
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a,
+hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*---------------*/
+/*
+
+Единицы измерения CSS
+PX, EM, REM, %, VW, VH, VMIN, VMAX, FR, EX, CH
+
+Абсолютная единица - не зависит от значений других свойств. Ее можно назвать еще фиксированной или окончательной
+Относительная единица - зависит от того или иного значения других свойств
+
+*/
+body {
+  height: 100%;
+  line-height: 1;
+  background-color: #333;
+  color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.875rem;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.example {
+  padding: 80px 0;
+}
+
+.example__container {
+  padding: 0 15px;
+  margin: 0px auto;
+  max-width: 65.625rem;
+  position: relative;
+}
+
+@media (min-width: 48em) {
+  .example__container::before {
+    content: "";
+    background: url("../img/яхта_2.jpg") 0 0/100% no-repeat;
+    position: absolute;
+    right: 0;
+    width: 14.57%;
+    padding-top: 22.95%;
+    top: 50%;
+    -webkit-transform: translate(50%, -50%);
+            transform: translate(50%, -50%);
+  }
+}
+.example__header {
+  margin: 0 0 25px 0;
+  max-width: 46.875rem;
+}
+
+.example__sub-title {
+  color: #a989c7;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.875rem;
+  line-height: 1.7;
+  margin: 0 0 1.07em 0;
+}
+
+.example__title {
+  color: #93b482;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 2.625rem;
+  line-height: 1.19;
+  margin: 0 0 0.38em 0;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 48em) {
+  .example__title {
+    font-size: 2rem;
+  }
+}
+.example__text {
+  line-height: 1.5;
+}
+
+.example__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  row-gap: 24px;
+  margin: 0 -12px;
+}
+
+.example__item {
+  padding: 0 12px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33.333%;
+          flex: 1 1 33.333%;
+  min-width: 18.125rem;
+}
+
+.item-example {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 23px;
+     -moz-column-gap: 23px;
+          column-gap: 23px;
+}
+
+.item-example__icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 63px;
+          flex: 0 0 63px;
+}
+
+.item-example__title {
+  color: #f2726f;
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin: 0 0 0.45em 0;
+}
+
+.item-example__text {
+  line-height: 1.5;
+}
